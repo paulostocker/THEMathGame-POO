@@ -7,13 +7,13 @@ public class THEMathGame
   
   private static int option = 0;
   private static int tries = 5;
+  private static int roundNum = 1;
   private static float correctAnswer = 0f;
   private static float answer = 0f;
   private static Scanner sc = new Scanner(System.in);
   
   public static void main(String[] args)
   {
-	
 	while(drawMenu() != 2){
 		initializeGame();
 	}
@@ -32,16 +32,16 @@ public class THEMathGame
   
   public static void initializeStage(int stageNum)
   {
-	int roundNum = 1;
+	roundNum = 1;
 	while(roundNum <= 10 && tries > 0){
-		drawStage(stageNum, roundNum);
+		drawStage(stageNum);
 		roundNum++;
 	}
   }
   
   public static int drawMenu()
   {
-  	System.out.println("--------------------------");
+  	System.out.println("\n--------------------------");
   	System.out.println("| Welcome to THEMathGame |");
   	System.out.println("|        v1.0            |");
   	System.out.println("--------------------------");
@@ -62,7 +62,7 @@ public class THEMathGame
 	return option;
   }
   
-  public static void drawStage(int stageNum, int roundNum)
+  public static void drawStage(int stageNum)
   {
 	int first = 0;
 	int second = 0;
@@ -112,6 +112,7 @@ public class THEMathGame
 	if(answer != correctAnswer){
 		System.out.println("* Incorreta");
 		tries--;
+		roundNum--;
 		System.out.println(String.format("- Você tem mais %d tentativas",tries));
 	}else{
 		System.out.println("* Correta");
