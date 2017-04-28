@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class THEMathGame
 {
   
-  private static int option = 0;
   private static int tries = 5;
   private static int roundNum = 1;
   private static float correctAnswer = 0f;
@@ -14,7 +13,7 @@ public class THEMathGame
   
   public static void main(String[] args)
   {
-	while(drawMenu() != 2){
+	while(drawMenu() == 1){
 		initializeGame();
 	}
 	sc.close();
@@ -41,26 +40,23 @@ public class THEMathGame
   
   public static int drawMenu()
   {
+	int option = 0;
   	System.out.println("\n--------------------------");
   	System.out.println("| Welcome to THEMathGame |");
   	System.out.println("|        v1.0            |");
   	System.out.println("--------------------------");
   	System.out.println("> 1 - New Game");
   	System.out.println("> 2 - Exit Game");
-    return getOption();
-  } 
-  
-  public static int getOption()
-  {	
   	System.out.println("--------------------------");
   	System.out.print(" - Enter the option: ");
     try{
       option = sc.nextInt();
     } catch(Exception ex){
   		System.out.println(" * Sorry, check if you entered the option number");
+		break;
     }
 	return option;
-  }
+  } 
   
   public static void drawStage(int stageNum)
   {
